@@ -62,9 +62,9 @@ jobs:
       - name: Tag and Push Images
         run: |
           for image in email-monitor participant post-wm pre-wm api-server controller; do
-            docker tag ${DOCKER_USERNAME}/${DOCKER_REPO}-$image ${DOCKER_USERNAME}/${DOCKER_REPO}:$image-${IMAGE_TAG}
-            docker push ${DOCKER_USERNAME}/${DOCKER_REPO}:$image-${IMAGE_TAG}
-          done
+            docker tag airavata/$image mryash/airavata:$image-latest
+            docker push mryash/airavata:$image-latest
+          done  
 
       - name: List Docker Images
         run: docker images | grep airavata
