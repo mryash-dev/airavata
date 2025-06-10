@@ -5,6 +5,8 @@ on:
     branches:
       - master
       - improve/docker
+    tags:
+      - "v*"
   pull_request:
     branches:
       - master
@@ -12,8 +14,7 @@ on:
 env:
   DOCKER_REGISTRY: docker.io
   DOCKER_USERNAME: mryash
-  DOCKER_REPO: airavata
-  IMAGE_TAG: latest
+  VERSION: ${{ github.ref_name }}
 
 jobs:
   build:
@@ -59,9 +60,9 @@ jobs:
       - name: List Docker Images
         run: docker images
 
-      - name: Tag and Push All Images into mryash/airavata
+      - name: Tag and Push Images
         run: |
           for image in email-monitor participant post-wm pre-wm api-server controller; do
-            docker tag airavata/$image mryash/airavata:${image}-${{ env.IMAGE_TAG }}
-            docker push mryash/airavata:${image}-${{ env.IMAGE_TAG }}
+            docker tag airavata/$image ${DOCKER_USERNAME}/$image:${VERSION}
+            docker push ${DOCKER_USERNAME}/$image:${VERSION}
           done
