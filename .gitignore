@@ -60,5 +60,5 @@ logs/
 **/generated-sources/
 /distribution
 /vault*
-airavata-server.properties
-test-airavata.py
+/airavata-server.properties
+/test-airavata.py
