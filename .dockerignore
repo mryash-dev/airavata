@@ -1,5 +1,153 @@
-.devcontainer
-.github
-.idea
-.run
-.vscode
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+*.md
+docs/
+*.txt
+LICENSE
+NOTICE
+CITATION.cff
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+.settings/
+.project
+.classpath
+.metadata/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+hs_err_pid*
+replay_pid*
+
+# Build artifacts
+*.tar.gz
+*.zip
+dist/
+build/
+# Allow distribution files for Docker build
+!distribution/
+
+# Test files
+src/test/
+**/test/
+**/tests/
+**/*Test.java
+**/*Tests.java
+**/testdata/
+**/test-resources/
+
+# Development tools
+dev-tools/
+examples/
+modules/ide-integration/
+modules/research-framework/research-hub/
+
+# Configuration files (will be copied separately)
+!airavata-api/src/main/resources/airavata-server.properties
+!airavata-api/src/main/resources/log4j2.xml
+!keystores/
+
+# Docker files (except the one we're building)
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+
+# Database files
+*.db
+*.sqlite
+
+# Node.js (if any)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python (if any)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ansible
+dev-tools/ansible/
+*.yml
+*.yaml
+
+# Deployment scripts
+dev-tools/deployment-scripts/
+DEPLOY
+INSTALL
+
+# Assets and static files
+assets/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+
+# License headers
+apache-license-header*.txt
+
+# Release notes
+RELEASE_NOTES
+
+# GitHub workflows
+.github/
+
+# VS Code run configurations
+.run/
+
+# Apache configuration
+.asf.yaml
