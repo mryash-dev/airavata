@@ -14,7 +14,7 @@ services:
       - "19900:19900"  # Agent Service gRPC
       - "19908:19908"  # Research Service gRPC
     volumes:
-      - ./vault:/opt/airavata/vault:ro
+      - ./airavata-server.properties:/opt/airavata/vault/airavata-server.properties:ro
       - airavata-logs:/opt/airavata/logs
     environment:
       - JAVA_OPTS=-Xmx2g -Xms1g
