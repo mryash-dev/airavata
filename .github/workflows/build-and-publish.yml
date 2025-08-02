@@ -2,10 +2,10 @@ name: Build and Push Monolithic Airavata Docker Image
 
 on:
   push:
-    branches: [ main, docker/test ]
+    branches: [ main, master, docker/test ]
     tags: [ "v*" ]
   pull_request:
-    branches: [ main, docker/test ]
+    branches: [ main, master, docker/test ]
   workflow_dispatch:
 
 env:
@@ -22,6 +22,29 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Install OS dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential automake bison flex libboost-all-dev libevent-dev libssl-dev libtool pkg-config
+
+      - name: Set up Thrift 0.22.0
+        run: |
+          wget -q https://dlcdn.apache.org/thrift/0.22.0/thrift-0.22.0.tar.gz
+          tar -xzf thrift-0.22.0.tar.gz
+          cd thrift-0.22.0
+          ./configure --without-rs --enable-libs=no --enable-tests=no
+          make -j$(nproc)
+          sudo make install
+
+      - name: Build with Maven (skip tests)
+        run: mvn clean install -DskipTests
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
