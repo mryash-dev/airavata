@@ -72,6 +72,8 @@ src/test/
 
 # Development tools
 dev-tools/
+# Allow deployment scripts for Docker build
+!dev-tools/deployment-scripts/
 examples/
 modules/ide-integration/
 modules/research-framework/research-hub/
@@ -124,8 +126,7 @@ dev-tools/ansible/
 *.yml
 *.yaml
 
-# Deployment scripts
-dev-tools/deployment-scripts/
+# Deployment scripts (excluded, but docker-startup.sh is allowed above)
 DEPLOY
 INSTALL
 

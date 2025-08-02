@@ -7,17 +7,25 @@ services:
       dockerfile: Dockerfile
     container_name: airavata-monolithic
     ports:
-      - "8930:8930"  # Airavata API
-      - "8050:8050"  # File Server
-      - "18800:18800"  # Agent Service
-      - "18889:18889"  # Research Service
+      - "8930:8930"  # Airavata API (Thrift RPC)
+      - "8050:8050"  # File Server (Thrift RPC)
+      - "18800:18800"  # Agent Service (Thrift RPC)
+      - "18889:18889"  # Research Service (Thrift RPC)
       - "19900:19900"  # Agent Service gRPC
       - "19908:19908"  # Research Service gRPC
     volumes:
+      # Mount your custom properties file here
+      # Copy airavata-server.properties.example to airavata-server.properties and modify as needed
       - ./airavata-server.properties:/opt/airavata/vault/airavata-server.properties:ro
       - airavata-logs:/opt/airavata/logs
     environment:
       - JAVA_OPTS=-Xmx2g -Xms1g
+    # All service logs (API, Pre-WM, Post-WM, etc.) will be captured by docker logs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
     depends_on:
       - mysql
       - rabbitmq
