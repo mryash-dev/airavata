@@ -98,7 +98,7 @@ EXPOSE 9097
 # EXPOSE 8082
 
 # Copy startup script
-COPY test-startup.sh /opt/airavata/start.sh
+COPY dev-startup.sh /opt/airavata/start.sh
 
 # Set ownership
 RUN chown -R airavata:airavata /opt/airavata && \
