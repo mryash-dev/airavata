@@ -62,3 +62,4 @@ logs/
 /vault*
 /airavata-server.properties
 /test-airavata.py
+/docker-compose.yml
