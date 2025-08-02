@@ -61,3 +61,4 @@ logs/
 /distribution
 /vault*
 airavata-server.properties
+test-airavata.py
