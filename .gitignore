@@ -63,3 +63,4 @@ logs/
 /airavata-server.properties
 /test-airavata.py
 /docker-compose.yml
+/DOCKER-SETUP.md
