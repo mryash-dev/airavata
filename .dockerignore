@@ -3,6 +3,12 @@
 .gitignore
 .gitattributes
 
+.devcontainer
+.github
+.idea
+.run
+.vscode
+
 # Documentation
 README.md
 *.md
