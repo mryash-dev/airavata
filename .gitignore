@@ -64,3 +64,4 @@ logs/
 /test-airavata.py
 /docker-compose.yml
 /DOCKER-SETUP.md
+.docker-compose.test.yml

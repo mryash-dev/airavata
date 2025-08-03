@@ -113,16 +113,16 @@ cd ${AIRAVATA_HOME}
 # Create a comprehensive log monitoring setup
 {
     # Monitor all service logs with prefixes
-    tail -f ${AIRAVATA_HOME}/logs/orchestrator.log | sed 's/^/[API-Orchestrator] /' &
-    tail -f ${AIRAVATA_HOME}/logs/controller.log | sed 's/^/[API-Controller] /' &
-    tail -f ${AIRAVATA_HOME}/logs/participant.log | sed 's/^/[API-Participant] /' &
-    tail -f ${AIRAVATA_HOME}/logs/email-monitor.log | sed 's/^/[API-EmailMonitor] /' &
-    tail -f ${AIRAVATA_HOME}/logs/realtime-monitor.log | sed 's/^/[API-RealtimeMonitor] /' &
-    tail -f ${AIRAVATA_HOME}/logs/pre-wm.log | sed 's/^/[API-PreWM] /' &
-    tail -f ${AIRAVATA_HOME}/logs/post-wm.log | sed 's/^/[API-PostWM] /' &
-    tail -f ${AIRAVATA_AGENT_HOME}/logs/agent-service.log | sed 's/^/[Agent] /' &
-    tail -f ${AIRAVATA_RESEARCH_HOME}/logs/research-service.log | sed 's/^/[Research] /' &
-    tail -f ${AIRAVATA_FILE_HOME}/logs/file-service.log | sed 's/^/[File] /' &
+    tail -f ${AIRAVATA_HOME}/apache-airavata-api-server/logs/orchestrator.log | sed 's/^/[API-Orchestrator] /' &
+    tail -f ${AIRAVATA_HOME}/apache-airavata-api-server/logs/controller.log | sed 's/^/[API-Controller] /' &
+    tail -f ${AIRAVATA_HOME}/apache-airavata-api-server/logs/participant.log | sed 's/^/[API-Participant] /' &
+    tail -f ${AIRAVATA_HOME}/apache-airavata-api-server/logs/email-monitor.log | sed 's/^/[API-EmailMonitor] /' &
+    tail -f ${AIRAVATA_HOME}/apache-airavata-api-server/logs/realtime-monitor.log | sed 's/^/[API-RealtimeMonitor] /' &
+    tail -f ${AIRAVATA_HOME}/apache-airavata-api-server/logs/pre-wm.log | sed 's/^/[API-PreWM] /' &
+    tail -f ${AIRAVATA_HOME}/apache-airavata-api-server/logs/post-wm.log | sed 's/^/[API-PostWM] /' &
+    tail -f ${AIRAVATA_AGENT_HOME}/apache-airavata-agent-service/logs/agent-service.log | sed 's/^/[Agent] /' &
+    tail -f ${AIRAVATA_RESEARCH_HOME}/apache-airavata-research-service/logs/research-service.log | sed 's/^/[Research] /' &
+    tail -f ${AIRAVATA_FILE_HOME}/apache-airavata-file-service/logs/file-service.log | sed 's/^/[File] /' &
     
     # Keep the main process running
     wait
